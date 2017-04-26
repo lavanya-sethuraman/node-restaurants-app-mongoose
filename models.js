@@ -20,11 +20,7 @@ const restaurantSchema = mongoose.Schema({
   }]
 });
 
-// *virtuals* (http://mongoosejs.com/docs/guide.html#virtuals)
-// allow us to define properties on our object that manipulate
-// properties that are stored in the database. Here we use it
-// to generate a human readable string based on the address object
-// we're storing in Mongo.
+
 restaurantSchema.virtual('addressString').get(function() {
   return `${this.address.building} ${this.address.street}`.trim()});
 
